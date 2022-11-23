@@ -1,10 +1,10 @@
 
-import dbConnect from './../../../util/mongo';
 import Product from '../../../models/Product';
+import dbConnect from './../../../lib/dbConnect';
 
 const products = async (req,res)=>{
     const {method}= req;
-     dbConnect();
+    await dbConnect();
     
     if(method=="GET"){
     }
