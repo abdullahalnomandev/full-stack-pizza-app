@@ -6,7 +6,7 @@ const products = async (req,res)=>{
     const {method,query:{id}}= req;
     await dbConnect();
     
-    // GET PRODUCT
+    // GET SINGLE_PRODUCT
     if(method=="GET"){
         try {
 
