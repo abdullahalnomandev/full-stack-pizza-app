@@ -38,11 +38,6 @@ const products = async (req,res)=>{
         }
     }
 
-
-
-  
-    
-
 }
 
 
