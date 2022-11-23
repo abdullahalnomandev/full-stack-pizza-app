@@ -1,7 +1,14 @@
 import styles from "../styles/Cart.module.css";
 import Image from "next/image";
+import { useDispatch,useSelector } from 'react-redux';
 
 const Cart = () => {
+
+  const dispatch = useDispatch();
+
+  const cart = useSelector(state=> state.cart)
+  console.log(cart);
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
