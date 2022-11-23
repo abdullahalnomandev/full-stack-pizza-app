@@ -2,12 +2,18 @@ import Image from "next/image";
 import styles from "../styles/Navbar.module.css";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
-  const quantity = useSelector((state) => state.cart.quantity);
+  const router = useRouter();
+  const quantity = useSelector(state => state.cart.quantity);
   return (
     <div className={styles.container}>
-      <div className={styles.item}>
+      <div
+        className={styles.item}
+        onClick={() => router.push("/")}
+        style={{ cursor: "pointer" }}
+      >
         <div className={styles.callButton}>
           <Image src="/img/telephone.png" alt="" width="32" height="32" />
         </div>
@@ -27,11 +33,13 @@ const Navbar = () => {
           <li className={styles.listItem}>Contact</li>
         </ul>
       </div>
-      <Link href='/cart' passHref>
-        <div className={styles.item}>
+      <Link href="/cart" passHref>
+        <div className={styles.item} style={{ cursor: "pointer" }}>
           <div className={styles.cart}>
             <Image src="/img/cart.png" alt="" width="30px" height="30px" />
-            <div className={styles.counter}>{quantity}</div>
+            <div className={styles.counter}>
+              {quantity}
+            </div>
           </div>
         </div>
       </Link>

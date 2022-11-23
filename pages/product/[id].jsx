@@ -103,7 +103,7 @@ const Product = ({ pizza }) => {
             ))}
           </div>
           <div className={styles.add}>
-            <input onChange={()=>setQuantity(e.target.value)} type="number" defaultValue={1} className={styles.quantity} />
+            <input onChange={(e)=>setQuantity(Number(e.target.value))} type="number" defaultValue={1} className={styles.quantity} />
             <button className={styles.button} onClick={()=>handleClick()}>Add to Cart</button>
           </div>
         </div>
