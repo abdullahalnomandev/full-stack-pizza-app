@@ -4,11 +4,26 @@ import dbConnect from './../../../lib/dbConnect';
 
 const products = async (req,res)=>{
     const {method}= req;
-    await dbConnect();
+     dbConnect();
     
+    // GET ALL PRODUCTS
     if(method=="GET"){
+        try {
+
+            const products = await Product.find({});
+               res.status(200).json({
+                status: 'success',
+                result:products.length,
+                products
+               });
+            
+        } catch (error) {
+            res.status(500).json(error)
+        }
     }
 
+
+    // POST SINGLE PRODUCTS
     if(method=="POST"){  
         console.log(req.body);
         try {
@@ -19,7 +34,6 @@ const products = async (req,res)=>{
             })
              
         } catch (error) {
-            console.log(error);
             res.status(500).json(error)
         }
     }

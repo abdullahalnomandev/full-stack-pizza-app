@@ -14,7 +14,7 @@ const ProductSchema = new mongoose.Schema({
     },
     img:{
         type:String,
-        required:[true,'Description is required'], 
+        required:[true,'Please upload a picture'], 
     },
     prices:{
         type:[Number],
@@ -31,7 +31,7 @@ const ProductSchema = new mongoose.Schema({
 )
 
 
-export default mongoose.model.User || mongoose.model('Product',ProductSchema)
+export default mongoose.model.Product || mongoose.model('Product',ProductSchema)
 
 
 
